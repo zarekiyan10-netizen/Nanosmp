@@ -12,45 +12,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 /* NanoSMP Floating Blue Particles */
+
+/* NanoSMP Floating Blue Particles - FIX */
 #shop {
+  position: relative;
   isolation: isolate;
+  overflow: hidden;
 }
 
 #shop::before,
 #shop::after {
   content: "";
   position: absolute;
-  inset: -50%;
-  z-index: -1;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(circle, #38bdf8 1.5px, transparent 2px),
-    radial-gradient(circle, #7dd3fc 2px, transparent 3px),
-    radial-gradient(circle, #bae6fd 1px, transparent 2px);
-  background-size: 95px 110px, 145px 160px, 65px 80px;
-  background-position: 0 0, 35px 55px, 15px 25px;
-  opacity: .35;
-  animation: nanoParticles 24s linear infinite;
+    radial-gradient(circle, #38bdf8 2px, transparent 3px),
+    radial-gradient(circle, #bae6fd 2px, transparent 3px),
+    radial-gradient(circle, #7dd3fc 1px, transparent 2px);
+  background-size: 90px 100px, 130px 140px, 60px 70px;
+  background-position: 0 0, 35px 45px, 15px 25px;
+  animation: nanoParticlesFix 18s linear infinite;
 }
 
 #shop::after {
-  opacity: .18;
-  background-position: 40px 70px, 80px 15px, 25px 45px;
-  animation-duration: 36s;
+  opacity: 0.45;
+  background-position: 45px 65px, 70px 15px, 25px 40px;
+  animation-duration: 28s;
   animation-direction: reverse;
 }
 
-@keyframes nanoParticles {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(80px, -120px, 0);
-  }
+#shop > * {
+  position: relative;
+  z-index: 1;
 }
 
-#shop h2 {
-  animation: nanoTitle 2.8s ease-in-out infinite alternate;
+@keyframes nanoParticlesFix {
+  from { background-position: 0 0, 35px 45px, 15px 25px; }
+  to { background-position: 80px -120px, 115px -95px, 95px -75px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -59,6 +59,7 @@
     animation: none !important;
   }
 }
+  
   <style>
 /* NanoSMP Rank Shop Effects */
 #shop {
