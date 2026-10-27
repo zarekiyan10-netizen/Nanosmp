@@ -13,52 +13,7 @@
   <link rel="stylesheet" href="style.css">
 /* NanoSMP Floating Blue Particles */
 
-/* NanoSMP Floating Blue Particles - FIX */
-#shop {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
 
-#shop::before,
-#shop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle, #38bdf8 2px, transparent 3px),
-    radial-gradient(circle, #bae6fd 2px, transparent 3px),
-    radial-gradient(circle, #7dd3fc 1px, transparent 2px);
-  background-size: 90px 100px, 130px 140px, 60px 70px;
-  background-position: 0 0, 35px 45px, 15px 25px;
-  animation: nanoParticlesFix 18s linear infinite;
-}
-
-#shop::after {
-  opacity: 0.45;
-  background-position: 45px 65px, 70px 15px, 25px 40px;
-  animation-duration: 28s;
-  animation-direction: reverse;
-}
-
-#shop > * {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes nanoParticlesFix {
-  from { background-position: 0 0, 35px 45px, 15px 25px; }
-  to { background-position: 80px -120px, 115px -95px, 95px -75px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #shop::before,
-  #shop::after {
-    animation: none !important;
-  }
-}
   
   <style>
 /* NanoSMP Rank Shop Effects */
