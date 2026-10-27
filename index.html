@@ -11,6 +11,95 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+<style>
+/* NanoSMP Rank Shop Effects */
+#shop {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at top, #c8efff 0%, transparent 65%),
+    linear-gradient(180deg, #f0fbff, #ffffff) !important;
+  padding: 65px 18px !important;
+  border-radius: 28px;
+}
+
+#shop h2 {
+  color: #087fc1 !important;
+  text-shadow: 0 0 18px #76d7ff80;
+  animation: nanoTitle 2.8s ease-in-out infinite alternate;
+}
+
+#shop > div > div {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #8bdcff !important;
+  border-radius: 22px !important;
+  box-shadow: 0 8px 25px #168bd225 !important;
+  transition: transform .3s ease, box-shadow .3s ease;
+  animation: nanoEnter .7s ease both;
+}
+
+#shop > div > div:nth-child(2) {
+  animation-delay: .12s;
+}
+
+#shop > div > div:nth-child(3) {
+  animation-delay: .24s;
+}
+
+#shop > div > div:nth-child(4) {
+  animation-delay: .36s;
+}
+
+#shop > div > div:hover {
+  transform: translateY(-9px) scale(1.025);
+  box-shadow: 0 15px 38px #159ee866 !important;
+}
+
+#shop button {
+  cursor: pointer;
+  border-radius: 13px !important;
+  box-shadow: 0 0 14px #20bfff35;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#shop button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 24px #20bfff90;
+}
+
+#shop button:active {
+  transform: scale(.97);
+}
+
+@keyframes nanoTitle {
+  from { text-shadow: 0 0 8px #76d7ff50; }
+  to { text-shadow: 0 0 24px #38baff; }
+}
+
+@keyframes nanoEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  #shop {
+    padding: 38px 12px !important;
+  }
+
+  #shop > div > div {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #shop *,
+  #shop h2 {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="sky-glow"></div>
