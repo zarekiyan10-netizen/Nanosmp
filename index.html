@@ -1,216 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta name="google-site-verification" content="glZn7bxrh5nexoTV_fNmt9jhH5vUhZT12SNCOtHiLlo" />
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#62c9ff">
-  <meta name="description" content="به NanoSMP خوش آمدید؛ ماجراجویی ماینکرفت جاوا منتظر شماست.">
-  <title>NanoSMP | سرور ماینکرفت</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">  
+  <meta name="theme-color" content="#080d18">
+  <title>NanoSMP | Minecraft Server</title>
+  <meta name="description" content="وب‌سایت رسمی سرور Minecraft NanoSMP">
+  <!-- اگر کد تأیید Google Search Console در نسخه قبلی است، آن را از نسخه قبلی حفظ کن. -->
   <style>
-/* NanoSMP Rank Shop Effects */
-#shop {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at top, #c8efff 0%, transparent 65%),
-    linear-gradient(180deg, #f0fbff, #ffffff) !important;
-  padding: 65px 18px !important;
-  border-radius: 28px;
-}
-
-#shop h2 {
-  color: #087fc1 !important;
-  text-shadow: 0 0 18px #76d7ff80;
-  animation: nanoTitle 2.8s ease-in-out infinite alternate;
-}
-
-#shop > div > div {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #8bdcff !important;
-  border-radius: 22px !important;
-  box-shadow: 0 8px 25px #168bd225 !important;
-  transition: transform .3s ease, box-shadow .3s ease;
-  animation: nanoEnter .7s ease both;
-}
-
-#shop > div > div:nth-child(2) {
-  animation-delay: .12s;
-}
-
-#shop > div > div:nth-child(3) {
-  animation-delay: .24s;
-}
-
-#shop > div > div:nth-child(4) {
-  animation-delay: .36s;
-}
-
-#shop > div > div:hover {
-  transform: translateY(-9px) scale(1.025);
-  box-shadow: 0 15px 38px #159ee866 !important;
-}
-
-#shop button {
-  cursor: pointer;
-  border-radius: 13px !important;
-  box-shadow: 0 0 14px #20bfff35;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-#shop button:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 24px #20bfff90;
-}
-
-#shop button:active {
-  transform: scale(.97);
-}
-
-@keyframes nanoTitle {
-  from { text-shadow: 0 0 8px #76d7ff50; }
-  to { text-shadow: 0 0 24px #38baff; }
-}
-
-@keyframes nanoEnter {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 600px) {
-  #shop {
-    padding: 38px 12px !important;
-  }
-
-  #shop > div > div {
-    max-width: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #shop *,
-  #shop h2 {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-</style>
+    :root{--bg:#070b13;--panel:#0d1524;--panel2:#101d30;--cyan:#28c5ff;--blue:#087df5;--text:#f4f8ff;--muted:#a5b5ca;--line:rgba(67,174,255,.22);--glow:0 0 32px rgba(20,157,255,.14)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 50% -10%,#102b4d 0,transparent 48%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1100px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(7,11,19,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:76px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.25rem;letter-spacing:.3px}
+    .logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#073d79,#18c7ff);box-shadow:0 0 22px #087df544;font-size:1.3rem}
+    .links{display:flex;align-items:center;gap:22px;color:var(--muted);font-size:.92rem}
+    .links a:hover{color:var(--cyan)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--blue);border-radius:12px;padding:11px 17px;font-weight:800;cursor:pointer;transition:.2s;background:linear-gradient(135deg,#087df5,#19baff);color:white;box-shadow:0 8px 24px #087df52b}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+    .btn.alt{background:transparent;box-shadow:none;border-color:var(--line)}
+    .hero{padding:76px 0 62px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:42px;min-height:510px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--cyan);font-size:.82rem;background:#0b1a2b}
+    h1{font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.2;margin:18px 0}
+    .neon{color:var(--cyan);text-shadow:0 0 24px #28c5ff55}
+    .lead{color:var(--muted);max-width:580px;margin:0 0 25px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .scene{min-height:300px;position:relative;display:grid;place-items:center;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#10294a,#08101d 68%);box-shadow:var(--glow)}
+    .scene:before,.scene:after{content:"";position:absolute;border:1px solid #1daeff44;transform:rotate(35deg);width:260px;height:260px;border-radius:38px}
+    .scene:after{width:180px;height:180px;transform:rotate(35deg);border-color:#28c5ff77}
+    .cube{font-size:7rem;filter:drop-shadow(0 0 24px #1baeff88);z-index:1;animation:float 4s ease-in-out infinite}
+    .scene-label{position:absolute;bottom:18px;left:18px;right:18px;text-align:center;color:#a9dfff;font-size:.82rem;letter-spacing:2px}
+    @keyframes float{50%{transform:translateY(-10px)}}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:4px 0 58px}
+    .stat,.card{background:linear-gradient(145deg,#101c2d,#0a111d);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--glow)}
+    .stat strong{display:block;color:var(--cyan);font-size:1.15rem}
+    .stat span{font-size:.85rem;color:var(--muted)}
+    section{padding:36px 0 58px}
+    .section-head{text-align:center;margin:0 auto 28px;max-width:650px}
+    .section-head h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:0 0 7px}
+    .section-head p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card .icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#0a2a46;color:var(--cyan);font-size:1.5rem;margin-bottom:12px}
+    .card h3{margin:0 0 7px}
+    .card p{margin:0;color:var(--muted);font-size:.92rem}
+    .price{font-size:1.4rem;color:var(--cyan);font-weight:900;margin:15px 0}
+    .note{margin-top:18px;padding:13px 16px;border:1px dashed #1979b9;border-radius:12px;color:var(--muted);font-size:.86rem}
+    .server-box{max-width:700px;margin:auto;text-align:center;background:linear-gradient(135deg,#0d2037,#0a111d);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--glow)}
+    .ip{direction:ltr;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0;padding:13px 15px;background:#050a12;border:1px solid #17456a;border-radius:12px;font-family:monospace;font-size:1.05rem}
+    .ip button{background:#102b45;border:1px solid #1c8ac8;color:var(--cyan);border-radius:8px;padding:7px 10px;cursor:pointer}
+    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.86rem}
+    .footer-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102b45;border:1px solid #28c5ff;color:white;border-radius:10px;padding:9px 15px;opacity:0;pointer-events:none;transition:.2s}
+    #toast.show{opacity:1}
+    @media(max-width:760px){.links{gap:12px;font-size:.82rem}.nav-cta{display:none}.hero{grid-template-columns:1fr;padding-top:48px;gap:26px}.scene{min-height:230px}.grid{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:13px 10px;text-align:center}.stat span{font-size:.76rem}.ip{font-size:.9rem}}
+    @media(max-width:430px){.links a:nth-child(2){display:none}.brand{font-size:1.05rem}.hero{padding-top:35px}}
+  </style>
 </head>
 <body>
-  <div class="sky-glow"></div>
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="NanoSMP خانه">
-      <span class="brand-cube">N</span><span>Nano<span class="brand-blue">SMP</span></span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="باز کردن منو">☰</button>
-    <nav id="nav">
-      <a href="#home">خانه</a><a href="#about">درباره ما</a><a href="#features">امکانات</a><a href="#join">راهنمای ورود</a>
-    </nav>
-    <a class="nav-cta" href="#join">شروع بازی <span>↗</span></a>
-  </header>
-
-  <main>
-    <section class="hero section-wrap" id="home">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse"></span> دنیای جدیدت منتظرته</div>
-        <h1>ماجراجویی‌ات را<br><span>از نو بساز!</span></h1>
-        <p class="hero-text">به NanoSMP خوش اومدی؛ جایی برای ساختن، کشف کردن و ماجراجویی کنار دوستات. وسایلت رو بردار، دنیا منتظرته!</p>
-        <div class="hero-actions">
-          <button class="button primary" id="heroCopy">کپی آدرس سرور <span>⧉</span></button>
-          <a class="button secondary" href="#about">بیشتر بشناس <span>↓</span></a>
-        </div>
-        <div class="server-chip"><span class="status-dot"></span><div><b id="statusTitle">آدرس سرور</b><small id="statusText">nanosmp.spwn.ir</small></div><span class="edition">JAVA EDITION</span></div>
-      </div>
-      <div class="hero-art" aria-label="تصویر تزئینی دنیای مکعبی">
-        <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
-        <div class="floating-label label-top">✦ دنیای تو، قوانین تو</div>
-        <div class="island island-back"><div class="grass"></div></div>
-        <div class="island island-main"><div class="grass"></div><div class="tree"><i></i><b></b><em></em></div><div class="little-house"><span></span></div></div>
-        <div class="pixel-person"><div class="head"><i></i><b></b><span></span></div><div class="body"></div><div class="arm arm-left"></div><div class="arm arm-right"></div><div class="leg leg-left"></div><div class="leg leg-right"></div></div>
-        <div class="floating-label label-bottom"><span>◆</span> بزن بریم!</div>
-        <div class="spark spark-one">✦</div><div class="spark spark-two">✧</div><div class="spark spark-three">✦</div>
-      </div>
-    </section>
-
-    <section class="quick-stats section-wrap">
-      <div class="stat"><span class="stat-icon">▣</span><div><b>Java Edition</b><small>نسخه جاوا</small></div></div>
-      <div class="stat"><span class="stat-icon">⌁</span><div><b>ماجراجویی گروهی</b><small>با دوستات بازی کن</small></div></div>
-      <div class="stat"><span class="stat-icon">✧</span><div><b>دنیای تو</b><small>بساز و کشف کن</small></div></div>
-    </section>
-
-    <section class="section-wrap about-section" id="about">
-      <div class="section-heading"><span class="section-kicker">درباره نانو</span><h2>یک دنیا، کلی <span>ماجرا</span></h2><p>هر بلاک می‌تونه شروع یک ایده تازه باشه. وارد شو و داستان خودت رو بساز.</p></div>
-      <div class="about-grid">
-        <div class="about-card large-card"><div class="card-illustration">▦</div><h3>بساز، زنده بمون، پیشرفت کن</h3><p>با منابعی که پیدا می‌کنی دنیای خودت رو بساز و قدم‌به‌قدم بزرگ‌ترش کن.</p><div class="block-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-        <div class="about-card blue-card"><div class="card-illustration">✦</div><h3>ماجراجویی با رفقا</h3><p>دوستات رو خبر کن و خاطره‌های ماینکرفتی بساز.</p><div class="mini-cubes"><i></i><i></i><i></i></div></div>
-      </div>
-    </section>
-
-    <section class="section-wrap features-section" id="features">
-      <div class="section-heading"><span class="section-kicker">چرا NanoSMP؟</span><h2>آماده‌ی <span>شروعی؟</span></h2><p>همه‌چیز برای یک ماجراجویی خوب از همین‌جا شروع می‌شه.</p></div>
-      <div class="feature-grid">
-        <article class="feature-card"><div class="feature-icon">⚒</div><h3>ساخت‌وساز</h3><p>ایده‌هات رو به سازه‌های خفن تبدیل کن.</p></article>
-        <article class="feature-card"><div class="feature-icon">♧</div><h3>اکتشاف</h3><p>گوشه‌وکنار دنیا رو بگرد و منابع پیدا کن.</p></article>
-        <article class="feature-card"><div class="feature-icon">♙</div><h3>بازی گروهی</h3><p>با بقیه بازیکن‌ها همکاری و رقابت کن.</p></article>
-        <article class="feature-card"><div class="feature-icon">◇</div><h3>ماجراجویی تازه</h3><p>هر بار می‌تونی هدف جدیدی برای خودت بسازی.</p></article>
-      </div>
-    </section>
-
-    <section class="join-section" id="join">
-      <div class="join-inner section-wrap">
-        <div><span class="section-kicker">ورود به سرور</span><h2>آماده‌ای وارد <span>بازی</span> بشی؟</h2><p>ماینکرفت جاوا رو باز کن و آدرس سرور رو کپی کن.</p></div>
-        <div class="join-box"><div class="join-box-top"><span class="status-dot"></span><span>آدرس سرور NanoSMP</span><span class="java-pill">JAVA</span></div><div class="ip-line"><code id="serverIp">nanosmp.spwn.ir</code><button id="copyIp" class="copy-button">کپی آدرس ⧉</button></div><div class="copy-feedback" id="copyFeedback" role="status">آدرس رو کپی کن و در بخش Multiplayer وارد کن.</div></div>
-      </div>
-    </section>
-
-    <section class="section-wrap steps-section">
-      <div class="section-heading"><span class="section-kicker">شروع در ۳ قدم</span><h2>چطور وارد <span>بشی؟</span></h2></div>
-      <div class="steps">
-        <div class="step"><span>۰۱</span><h3>ماینکرفت جاوا</h3><p>نسخه Java Edition رو اجرا کن.</p></div>
-        <div class="step"><span>۰۲</span><h3>چند نفره</h3><p>از منوی اصلی وارد Multiplayer شو.</p></div>
-        <div class="step"><span>۰۳</span><h3>افزودن سرور</h3><p>آدرس بالا رو وارد کن و Join Server رو بزن.</p></div>
-      </div>
-    </section>
-  </main>
-
-  <footer><a class="brand footer-brand" href="#home"><span class="brand-cube">N</span><span>Nano<span class="brand-blue">SMP</span></span></a><p>ساخته‌شده برای ماجراجویی‌های بزرگ. ⛏</p><a href="#home" class="back-top">بازگشت به بالا ↑</a></footer>
-  <div class="toast" id="toast" role="status"></div>
- <scriptsrc="script.js"></script>
-<section id="shop" dir="rtl" style="padding:60px 20px;text-align:center;background:linear-gradient(180deg,#e0f5ff,#ffffff);font-family:Vazirmatn,sans-serif;color:#16354a;">
-  <h2 style="font-size:32px;color:#168bd2;">🛒 شاپ رنک NanoSMP</h2>
-  <p>رنک مورد علاقه‌ات رو انتخاب کن!</p>
-
-  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:30px;">
-    <div style="background:white;border:2px solid #8bd8ff;border-radius:18px;padding:25px;width:200px;box-shadow:0 8px 25px #168bd220;">
-      <h3>⭐ VIP</h3>
-      <p>۱۰۰٬۰۰۰ تومان</p>
-      <button onclick="alert('برای خرید VIP، روش پرداخت و دریافت رنک باید توسط مدیریت سرور مشخص شود.')" style="background:#168bd2;color:white;border:0;padding:12px 24px;border-radius:10px;">خرید رنک</button>
+<header>
+  <nav class="wrap" aria-label="منوی اصلی">
+    <a class="brand" href="#home"><span class="logo">✦</span><span>Nano<span class="neon">SMP</span></span></a>
+    <div class="links">
+      <a href="#home">خانه</a><a href="#features">امکانات</a><a href="#shop">شاپ</a><a href="#join">ورود به سرور</a>
     </div>
+    <a class="btn nav-cta" href="#join">شروع بازی ↗</a>
+  </nav>
+</header>
 
-    <div style="background:white;border:2px solid #8bd8ff;border-radius:18px;padding:25px;width:200px;box-shadow:0 8px 25px #168bd220;">
-      <h3>💎 MVP</h3>
-      <p>۲۱۰٬۰۰۰ تومان</p>
-      <button onclick="alert('برای خرید MVP، روش پرداخت و دریافت رنک باید توسط مدیریت سرور مشخص شود.')" style="background:#168bd2;color:white;border:0;padding:12px 24px;border-radius:10px;">خرید رنک</button>
+<main id="home">
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">◆ دنیای Minecraft Java</span>
+      <h1>ماجراجویی بعدی تو<br>در <span class="neon">NanoSMP</span></h1>
+      <p class="lead">آماده‌ای وارد دنیای سرور بشی؟ آدرس سرور رو کپی کن و از Minecraft Java به ما بپیوند.</p>
+      <div class="actions"><a class="btn" href="#join">ورود به سرور <span>↗</span></a><a class="btn alt" href="#shop">مشاهده شاپ</a></div>
     </div>
-
-    <div style="background:white;border:2px solid #8bd8ff;border-radius:18px;padding:25px;width:200px;box-shadow:0 8px 25px #168bd220;">
-      <h3>🔷 PLUS</h3>
-      <p>۳۰۰٬۰۰۰ تومان</p>
-      <button onclick="alert('برای خرید PLUS، روش پرداخت و دریافت رنک باید توسط مدیریت سرور مشخص شود.')" style="background:#168bd2;color:white;border:0;padding:12px 24px;border-radius:10px;">خرید رنک</button>
-    </div>
-
-    <div style="background:white;border:2px solid #8bd8ff;border-radius:18px;padding:25px;width:200px;box-shadow:0 8px 25px #168bd220;">
-      <h3>👑 SPONSOR</h3>
-      <p>۱٬۰۰۰٬۰۰۰ تومان</p>
-      <button onclick="alert('برای خرید SPONSOR، روش پرداخت و دریافت رنک باید توسط مدیریت سرور مشخص شود.')" style="background:#168bd2;color:white;border:0;padding:12px 24px;border-radius:10px;">خرید رنک</button>
+    <div class="scene" aria-label="طرح گرافیکی مکعبی">
+      <div class="cube">▦</div>
+      <div class="scene-label">BUILD · EXPLORE · PLAY</div>
     </div>
   </div>
-</section>
-   
+
+  <div class="wrap stats">
+    <div class="stat"><strong>JAVA</strong><span>نسخه سرور</span></div>
+    <div class="stat"><strong> NanoSMP </strong><span>نام سرور</span></div>
+    <div class="stat"><strong>24/7?</strong><span>وضعیت آنلاین تأیید نشده</span></div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head"><h2>چرا <span class="neon">NanoSMP</span>؟</h2><p>اطلاعات سرور رو بعداً با امکانات واقعی و تأییدشده کامل کن.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">◇</div><h3>دنیای Minecraft</h3><p>برای معرفی حالت‌های بازی و ویژگی‌های واقعی سرور، این بخش قابل ویرایشه.</p></article>
+        <article class="card"><div class="icon">⚡</div><h3>تجربه گیمینگ</h3><p>ظاهر نئونی، رابط ساده و دسترسی راحت به بخش‌های سایت.</p></article>
+        <article class="card"><div class="icon">✦</div><h3>شاپ سرور</h3><p>قیمت‌ها و جزئیات محصولات را پیش از فعال‌سازی خرید بررسی کن.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="wrap">
+      <div class="section-head"><h2>شاپ <span class="neon">NanoSMP</span></h2><p>قیمت‌های زیر نمایشی‌اند؛ پرداخت واقعی فعال نیست.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">🔑</div><h3>Common Key</h3><p>کلید معمولی</p><div class="price">۵۰٬۰۰۰ تومان</div><button class="btn alt demo-buy" type="button">خرید نمایشی</button></article>
+        <article class="card"><div class="icon">💠</div><h3>Rare Key</h3><p>کلید کمیاب</p><div class="price">۱۰۰٬۰۰۰ تومان</div><button class="btn alt demo-buy" type="button">خرید نمایشی</button></article>
+        <article class="card"><div class="icon">👑</div><h3>Legendary Key</h3><p>کلید افسانه‌ای</p><div class="price">۲۰۰٬۰۰۰ تومان</div><button class="btn alt demo-buy" type="button">خرید نمایشی</button></article>
+      </div>
+      <div class="note">توجه: این دکمه‌ها فقط پیام نمایشی نشان می‌دهند و هیچ پرداخت یا سفارش واقعی انجام نمی‌شود. قیمت‌ها طبق اطلاعاتی است که قبلاً برای شاپ Key داده شده‌اند.</div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap">
+      <div class="section-head"><h2>به ما <span class="neon">بپیوند</span></h2><p>آدرس سرور را کپی کن و در بخش Multiplayer بازی وارد کن.</p></div>
+      <div class="server-box">
+        <div class="eyebrow">MINECRAFT JAVA SERVER</div>
+        <div class="ip"><span id="server-ip">nanosmp.spwn.ir</span><button id="copy-ip" type="button">کپی IP</button></div>
+        <p style="color:var(--muted);margin:0">آدرس دیسکورد یا اطلاعات تأییدنشده اضافه نشده است.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-row"><span>© NanoSMP — همه حقوق محفوظ است.</span><span>ساخته‌شده برای جامعه Minecraft</span></div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+  const toast = document.getElementById('toast');
+  function showToast(message){toast.textContent=message;toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2200);}
+  document.getElementById('copy-ip').addEventListener('click', async ()=>{
+    const ip=document.getElementById('server-ip').textContent.trim();
+    try { await navigator.clipboard.writeText(ip); showToast('آدرس سرور کپی شد!'); }
+    catch(e) { showToast('آدرس سرور: '+ip); }
+  });
+  document.querySelectorAll('.demo-buy').forEach(button=>button.addEventListener('click',()=>showToast('خرید فعلاً نمایشی است و پرداختی انجام نمی‌شود.')));
+</script>
 </body>
-</html
+</html>
