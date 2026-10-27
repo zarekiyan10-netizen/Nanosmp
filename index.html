@@ -4,139 +4,103 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080d18">
-  <title>NanoSMP | Minecraft Server</title>
-  <meta name="description" content="وب‌سایت رسمی سرور Minecraft NanoSMP">
-  <!-- اگر کد تأیید Google Search Console در نسخه قبلی است، آن را از نسخه قبلی حفظ کن. -->
+  <title>شاپ NanoSMP | Rank & Key</title>
+  <meta name="description" content="شاپ نمایشی سرور Minecraft NanoSMP">
+  <!-- مهم: اگر متا تگ تأیید Google Search Console در نسخه فعلی‌ات وجود دارد، آن را هم در این فایل نگه دار. -->
   <style>
     :root{--bg:#070b13;--panel:#0d1524;--panel2:#101d30;--cyan:#28c5ff;--blue:#087df5;--text:#f4f8ff;--muted:#a5b5ca;--line:rgba(67,174,255,.22);--glow:0 0 32px rgba(20,157,255,.14)}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
     body{margin:0;background:radial-gradient(ellipse at 50% -10%,#102b4d 0,transparent 48%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(1100px,92%);margin:auto}
-    header{position:sticky;top:0;z-index:10;background:rgba(7,11,19,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:76px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.25rem;letter-spacing:.3px}
-    .logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#073d79,#18c7ff);box-shadow:0 0 22px #087df544;font-size:1.3rem}
-    .links{display:flex;align-items:center;gap:22px;color:var(--muted);font-size:.92rem}
-    .links a:hover{color:var(--cyan)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--blue);border-radius:12px;padding:11px 17px;font-weight:800;cursor:pointer;transition:.2s;background:linear-gradient(135deg,#087df5,#19baff);color:white;box-shadow:0 8px 24px #087df52b}
-    .btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
-    .btn.alt{background:transparent;box-shadow:none;border-color:var(--line)}
-    .hero{padding:76px 0 62px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:42px;min-height:510px}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(7,11,19,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:74px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.2rem}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#073d79,#18c7ff);box-shadow:0 0 22px #087df544;font-size:1.3rem}
+    .links{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:.9rem}.links a:hover{color:var(--cyan)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--blue);border-radius:12px;padding:10px 16px;font-weight:800;cursor:pointer;transition:.2s;background:linear-gradient(135deg,#087df5,#19baff);color:white;box-shadow:0 8px 24px #087df52b;font-family:inherit}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.btn.alt{background:transparent;box-shadow:none;border-color:var(--line)}
+    .hero{padding:66px 0 45px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:38px}
     .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--cyan);font-size:.82rem;background:#0b1a2b}
-    h1{font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.2;margin:18px 0}
-    .neon{color:var(--cyan);text-shadow:0 0 24px #28c5ff55}
-    .lead{color:var(--muted);max-width:580px;margin:0 0 25px}
-    .actions{display:flex;flex-wrap:wrap;gap:12px}
-    .scene{min-height:300px;position:relative;display:grid;place-items:center;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#10294a,#08101d 68%);box-shadow:var(--glow)}
-    .scene:before,.scene:after{content:"";position:absolute;border:1px solid #1daeff44;transform:rotate(35deg);width:260px;height:260px;border-radius:38px}
-    .scene:after{width:180px;height:180px;transform:rotate(35deg);border-color:#28c5ff77}
-    .cube{font-size:7rem;filter:drop-shadow(0 0 24px #1baeff88);z-index:1;animation:float 4s ease-in-out infinite}
-    .scene-label{position:absolute;bottom:18px;left:18px;right:18px;text-align:center;color:#a9dfff;font-size:.82rem;letter-spacing:2px}
-    @keyframes float{50%{transform:translateY(-10px)}}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:4px 0 58px}
-    .stat,.card{background:linear-gradient(145deg,#101c2d,#0a111d);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--glow)}
-    .stat strong{display:block;color:var(--cyan);font-size:1.15rem}
-    .stat span{font-size:.85rem;color:var(--muted)}
-    section{padding:36px 0 58px}
-    .section-head{text-align:center;margin:0 auto 28px;max-width:650px}
-    .section-head h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:0 0 7px}
-    .section-head p{color:var(--muted);margin:0}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card .icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#0a2a46;color:var(--cyan);font-size:1.5rem;margin-bottom:12px}
-    .card h3{margin:0 0 7px}
-    .card p{margin:0;color:var(--muted);font-size:.92rem}
-    .price{font-size:1.4rem;color:var(--cyan);font-weight:900;margin:15px 0}
-    .note{margin-top:18px;padding:13px 16px;border:1px dashed #1979b9;border-radius:12px;color:var(--muted);font-size:.86rem}
-    .server-box{max-width:700px;margin:auto;text-align:center;background:linear-gradient(135deg,#0d2037,#0a111d);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--glow)}
-    .ip{direction:ltr;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0;padding:13px 15px;background:#050a12;border:1px solid #17456a;border-radius:12px;font-family:monospace;font-size:1.05rem}
-    .ip button{background:#102b45;border:1px solid #1c8ac8;color:var(--cyan);border-radius:8px;padding:7px 10px;cursor:pointer}
-    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.86rem}
-    .footer-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102b45;border:1px solid #28c5ff;color:white;border-radius:10px;padding:9px 15px;opacity:0;pointer-events:none;transition:.2s}
-    #toast.show{opacity:1}
-    @media(max-width:760px){.links{gap:12px;font-size:.82rem}.nav-cta{display:none}.hero{grid-template-columns:1fr;padding-top:48px;gap:26px}.scene{min-height:230px}.grid{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:13px 10px;text-align:center}.stat span{font-size:.76rem}.ip{font-size:.9rem}}
-    @media(max-width:430px){.links a:nth-child(2){display:none}.brand{font-size:1.05rem}.hero{padding-top:35px}}
+    h1{font-size:clamp(2.25rem,5vw,4rem);line-height:1.25;margin:18px 0}.neon{color:var(--cyan);text-shadow:0 0 24px #28c5ff55}
+    .lead{color:var(--muted);max-width:580px;margin:0 0 24px}.actions{display:flex;flex-wrap:wrap;gap:12px}
+    .scene{min-height:270px;position:relative;display:grid;place-items:center;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#10294a,#08101d 68%);box-shadow:var(--glow)}
+    .scene:before,.scene:after{content:"";position:absolute;border:1px solid #1daeff44;transform:rotate(35deg);width:240px;height:240px;border-radius:38px}.scene:after{width:165px;height:165px;border-color:#28c5ff77}
+    .cube{font-size:6rem;filter:drop-shadow(0 0 24px #1baeff88);z-index:1;animation:float 4s ease-in-out infinite}.scene-label{position:absolute;bottom:15px;text-align:center;color:#a9dfff;font-size:.8rem;letter-spacing:2px}
+    @keyframes float{50%{transform:translateY(-9px)}}
+    section{padding:36px 0 52px}.section-head{text-align:center;margin:0 auto 28px;max-width:680px}.section-head h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:0 0 7px}.section-head p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.card{position:relative;display:flex;flex-direction:column;background:linear-gradient(145deg,#101c2d,#0a111d);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--glow);min-width:0;transition:transform .2s,border-color .2s}
+    .card:hover{transform:translateY(-4px);border-color:#28c5ff88}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#0a2a46;color:var(--cyan);font-size:1.45rem;margin-bottom:12px}
+    .card h3{margin:0 0 5px;font-size:1.12rem}.card p{margin:0;color:var(--muted);font-size:.88rem}.price{font-size:1.22rem;color:var(--cyan);font-weight:900;margin:15px 0 4px}.price small{font-size:.75rem;color:var(--muted);font-weight:400}
+    .card .btn{margin-top:15px;width:100%;font-size:.9rem}.featured{border-color:#159fff;box-shadow:0 0 28px #087df526}.tag{position:absolute;top:12px;left:12px;font-size:.7rem;color:#07101b;background:var(--cyan);border-radius:999px;padding:2px 8px;font-weight:900}
+    .notice{margin:20px auto 0;padding:13px 16px;border:1px dashed #1979b9;border-radius:12px;color:var(--muted);font-size:.86rem;max-width:850px}
+    .server-box{max-width:700px;margin:auto;text-align:center;background:linear-gradient(135deg,#0d2037,#0a111d);border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:var(--glow)}
+    .ip{direction:ltr;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0;padding:13px 15px;background:#050a12;border:1px solid #17456a;border-radius:12px;font-family:monospace;font-size:1.05rem}.ip button{background:#102b45;border:1px solid #1c8ac8;color:var(--cyan);border-radius:8px;padding:7px 10px;cursor:pointer}
+    footer{border-top:1px solid var(--line);padding:23px 0;color:var(--muted);font-size:.85rem}.footer-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102b45;border:1px solid #28c5ff;color:white;border-radius:10px;padding:9px 15px;opacity:0;pointer-events:none;transition:.2s;z-index:30;max-width:90%;text-align:center}#toast.show{opacity:1}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{gap:22px}}
+    @media(max-width:700px){.links{gap:11px;font-size:.8rem}.nav-cta{display:none}.hero{grid-template-columns:1fr;padding-top:42px}.scene{min-height:220px}.grid{gap:10px}.card{padding:15px}.card h3{font-size:1rem}.price{font-size:1.08rem}}
+    @media(max-width:430px){.brand{font-size:1rem}.links a:nth-child(2){display:none}.grid{grid-template-columns:1fr 1fr}.card{padding:12px}.card .btn{padding:9px 5px;font-size:.8rem}.price{font-size:1rem}.icon{width:42px;height:42px}}
   </style>
 </head>
 <body>
 <header>
   <nav class="wrap" aria-label="منوی اصلی">
     <a class="brand" href="#home"><span class="logo">✦</span><span>Nano<span class="neon">SMP</span></span></a>
-    <div class="links">
-      <a href="#home">خانه</a><a href="#features">امکانات</a><a href="#shop">شاپ</a><a href="#join">ورود به سرور</a>
-    </div>
-    <a class="btn nav-cta" href="#join">شروع بازی ↗</a>
+    <div class="links"><a href="#home">خانه</a><a href="#ranks">شاپ Rank</a><a href="#keys">شاپ Key</a><a href="#join">اتصال</a></div>
+    <a class="btn nav-cta" href="#ranks">مشاهده رنک‌ها</a>
   </nav>
 </header>
 
 <main id="home">
   <div class="wrap hero">
     <div>
-      <span class="eyebrow">◆ دنیای Minecraft Java</span>
-      <h1>ماجراجویی بعدی تو<br>در <span class="neon">NanoSMP</span></h1>
-      <p class="lead">آماده‌ای وارد دنیای سرور بشی؟ آدرس سرور رو کپی کن و از Minecraft Java به ما بپیوند.</p>
-      <div class="actions"><a class="btn" href="#join">ورود به سرور <span>↗</span></a><a class="btn alt" href="#shop">مشاهده شاپ</a></div>
+      <span class="eyebrow">✦ فروشگاه رسمی NanoSMP</span>
+      <h1>شاپ سرور<br><span class="neon">NanoSMP</span></h1>
+      <p class="lead">رنک و کی موردنظرت رو انتخاب کن. در حال حاضر دکمه‌های خرید فقط نمایشی هستند و هیچ پرداخت واقعی انجام نمی‌شود.</p>
+      <div class="actions"><a class="btn" href="#ranks">دیدن Rankها ↓</a><a class="btn alt" href="#keys">دیدن Keyها</a></div>
     </div>
-    <div class="scene" aria-label="طرح گرافیکی مکعبی">
-      <div class="cube">▦</div>
-      <div class="scene-label">BUILD · EXPLORE · PLAY</div>
-    </div>
+    <div class="scene" aria-label="طرح گرافیکی مکعبی"><div class="cube">▦</div><div class="scene-label">NANOSMP · STORE</div></div>
   </div>
 
-  <div class="wrap stats">
-    <div class="stat"><strong>JAVA</strong><span>نسخه سرور</span></div>
-    <div class="stat"><strong> NanoSMP </strong><span>نام سرور</span></div>
-    <div class="stat"><strong>24/7?</strong><span>وضعیت آنلاین تأیید نشده</span></div>
-  </div>
-
-  <section id="features">
+  <section id="ranks">
     <div class="wrap">
-      <div class="section-head"><h2>چرا <span class="neon">NanoSMP</span>؟</h2><p>اطلاعات سرور رو بعداً با امکانات واقعی و تأییدشده کامل کن.</p></div>
+      <div class="section-head"><h2>شاپ <span class="neon">Rank</span></h2><p>قیمت رنک‌ها به تومان — امکانات هر رنک هنوز مشخص نشده است.</p></div>
       <div class="grid">
-        <article class="card"><div class="icon">◇</div><h3>دنیای Minecraft</h3><p>برای معرفی حالت‌های بازی و ویژگی‌های واقعی سرور، این بخش قابل ویرایشه.</p></article>
-        <article class="card"><div class="icon">⚡</div><h3>تجربه گیمینگ</h3><p>ظاهر نئونی، رابط ساده و دسترسی راحت به بخش‌های سایت.</p></article>
-        <article class="card"><div class="icon">✦</div><h3>شاپ سرور</h3><p>قیمت‌ها و جزئیات محصولات را پیش از فعال‌سازی خرید بررسی کن.</p></article>
+        <article class="card"><div class="icon">◆</div><h3>VIP</h3><p>رنک VIP</p><div class="price">۱۰۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="VIP" type="button">خرید نمایشی</button></article>
+        <article class="card"><div class="icon">✦</div><h3>MVP</h3><p>رنک MVP</p><div class="price">۲۱۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="MVP" type="button">خرید نمایشی</button></article>
+        <article class="card featured"><span class="tag">PLUS</span><div class="icon">⚡</div><h3>PLUS</h3><p>رنک PLUS</p><div class="price">۳۰۰٬۰۰۰ <small>تومان</small></div><button class="btn demo-buy" data-item="PLUS" type="button">خرید نمایشی</button></article>
+        <article class="card"><div class="icon">♛</div><h3>SPONSOR</h3><p>رنک SPONSOR</p><div class="price">۱٬۰۰۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="SPONSOR" type="button">خرید نمایشی</button></article>
       </div>
+      <div class="notice">ویژگی‌های رنک‌ها هنوز وارد نشده‌اند؛ برای جلوگیری از نمایش اطلاعات نادرست، فعلاً فقط نام و قیمت ثبت شده است.</div>
     </div>
   </section>
 
-  <section id="shop">
+  <section id="keys">
     <div class="wrap">
-      <div class="section-head"><h2>شاپ <span class="neon">NanoSMP</span></h2><p>قیمت‌های زیر نمایشی‌اند؛ پرداخت واقعی فعال نیست.</p></div>
+      <div class="section-head"><h2>شاپ <span class="neon">Key</span></h2><p>قیمت‌های نمایشی کلیدها</p></div>
       <div class="grid">
-        <article class="card"><div class="icon">🔑</div><h3>Common Key</h3><p>کلید معمولی</p><div class="price">۵۰٬۰۰۰ تومان</div><button class="btn alt demo-buy" type="button">خرید نمایشی</button></article>
-        <article class="card"><div class="icon">💠</div><h3>Rare Key</h3><p>کلید کمیاب</p><div class="price">۱۰۰٬۰۰۰ تومان</div><button class="btn alt demo-buy" type="button">خرید نمایشی</button></article>
-        <article class="card"><div class="icon">👑</div><h3>Legendary Key</h3><p>کلید افسانه‌ای</p><div class="price">۲۰۰٬۰۰۰ تومان</div><button class="btn alt demo-buy" type="button">خرید نمایشی</button></article>
+        <article class="card"><div class="icon">🔑</div><h3>Common Key</h3><p>کلید معمولی</p><div class="price">۵۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="Common Key" type="button">خرید نمایشی</button></article>
+        <article class="card"><div class="icon">💠</div><h3>Rare Key</h3><p>کلید کمیاب</p><div class="price">۱۰۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="Rare Key" type="button">خرید نمایشی</button></article>
+        <article class="card"><div class="icon">👑</div><h3>Legendary Key</h3><p>کلید افسانه‌ای</p><div class="price">۲۰۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="Legendary Key" type="button">خرید نمایشی</button></article>
+        <article class="card"><div class="icon">＋</div><h3>محصول بعدی</h3><p>می‌توان بعداً محصول‌های بیشتری اضافه کرد.</p><div class="price">—</div><button class="btn alt" type="button" onclick="showToast('برای افزودن محصول، اطلاعات آن را مشخص کن.')">اطلاعات بیشتر</button></article>
       </div>
-      <div class="note">توجه: این دکمه‌ها فقط پیام نمایشی نشان می‌دهند و هیچ پرداخت یا سفارش واقعی انجام نمی‌شود. قیمت‌ها طبق اطلاعاتی است که قبلاً برای شاپ Key داده شده‌اند.</div>
+      <div class="notice">این شاپ فقط ظاهر نمایشی دارد؛ پرداخت، ثبت سفارش یا تحویل خودکار آیتم در بازی پیاده‌سازی نشده است.</div>
     </div>
   </section>
 
   <section id="join">
     <div class="wrap">
-      <div class="section-head"><h2>به ما <span class="neon">بپیوند</span></h2><p>آدرس سرور را کپی کن و در بخش Multiplayer بازی وارد کن.</p></div>
-      <div class="server-box">
-        <div class="eyebrow">MINECRAFT JAVA SERVER</div>
-        <div class="ip"><span id="server-ip">nanosmp.spwn.ir</span><button id="copy-ip" type="button">کپی IP</button></div>
-        <p style="color:var(--muted);margin:0">آدرس دیسکورد یا اطلاعات تأییدنشده اضافه نشده است.</p>
-      </div>
+      <div class="section-head"><h2>اتصال به <span class="neon">سرور</span></h2><p>آدرس سرور را کپی کن و در Minecraft Java وارد کن.</p></div>
+      <div class="server-box"><div class="eyebrow">MINECRAFT JAVA SERVER</div><div class="ip"><span id="server-ip">nanosmp.spwn.ir</span><button id="copy-ip" type="button">کپی IP</button></div><p style="color:var(--muted);margin:0">آدرس دیسکورد یا اطلاعات تأییدنشده اضافه نشده است.</p></div>
     </div>
   </section>
 </main>
-
-<footer><div class="wrap footer-row"><span>© NanoSMP — همه حقوق محفوظ است.</span><span>ساخته‌شده برای جامعه Minecraft</span></div></footer>
+<footer><div class="wrap footer-row"><span>© NanoSMP — همه حقوق محفوظ است.</span><span>شاپ نمایشی؛ بدون پرداخت واقعی</span></div></footer>
 <div id="toast" role="status" aria-live="polite"></div>
 <script>
-  const toast = document.getElementById('toast');
-  function showToast(message){toast.textContent=message;toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2200);}
-  document.getElementById('copy-ip').addEventListener('click', async ()=>{
-    const ip=document.getElementById('server-ip').textContent.trim();
-    try { await navigator.clipboard.writeText(ip); showToast('آدرس سرور کپی شد!'); }
-    catch(e) { showToast('آدرس سرور: '+ip); }
-  });
-  document.querySelectorAll('.demo-buy').forEach(button=>button.addEventListener('click',()=>showToast('خرید فعلاً نمایشی است و پرداختی انجام نمی‌شود.')));
+  const toast=document.getElementById('toast');
+  function showToast(message){toast.textContent=message;toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2400);}
+  document.querySelectorAll('.demo-buy').forEach(button=>button.addEventListener('click',()=>showToast('خرید '+button.dataset.item+' فعلاً نمایشی است؛ پرداختی انجام نشد.')));
+  document.getElementById('copy-ip').addEventListener('click',async()=>{const ip=document.getElementById('server-ip').textContent.trim();try{await navigator.clipboard.writeText(ip);showToast('آدرس سرور کپی شد!')}catch(e){showToast('آدرس سرور: '+ip)}});
 </script>
 </body>
 </html>
