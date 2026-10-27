@@ -11,7 +11,55 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-<style>
+/* NanoSMP Floating Blue Particles */
+#shop {
+  isolation: isolate;
+}
+
+#shop::before,
+#shop::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, #38bdf8 1.5px, transparent 2px),
+    radial-gradient(circle, #7dd3fc 2px, transparent 3px),
+    radial-gradient(circle, #bae6fd 1px, transparent 2px);
+  background-size: 95px 110px, 145px 160px, 65px 80px;
+  background-position: 0 0, 35px 55px, 15px 25px;
+  opacity: .35;
+  animation: nanoParticles 24s linear infinite;
+}
+
+#shop::after {
+  opacity: .18;
+  background-position: 40px 70px, 80px 15px, 25px 45px;
+  animation-duration: 36s;
+  animation-direction: reverse;
+}
+
+@keyframes nanoParticles {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(80px, -120px, 0);
+  }
+}
+
+#shop h2 {
+  animation: nanoTitle 2.8s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #shop::before,
+  #shop::after {
+    animation: none !important;
+  }
+}
+  <style>
 /* NanoSMP Rank Shop Effects */
 #shop {
   position: relative;
