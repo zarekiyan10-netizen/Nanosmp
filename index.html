@@ -7,6 +7,57 @@
   <title>شاپ NanoSMP | Rank & Key</title>
   <meta name="description" content="شاپ نمایشی سرور Minecraft NanoSMP">
   <!-- مهم: اگر متا تگ تأیید Google Search Console در نسخه فعلی‌ات وجود دارد، آن را هم در این فایل نگه دار. -->
+  
+/* NanoSMP - افکت‌های گرافیکی ملایم */
+.btn {
+  transition: transform .22s ease,
+              box-shadow .22s ease,
+              filter .22s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px #28c5ff35,
+              0 6px 18px #087df522;
+}
+
+.card {
+  transition: transform .24s ease,
+              border-color .24s ease,
+              box-shadow .24s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #28c5ff70;
+  box-shadow: 0 0 20px #087df51a;
+}
+
+.logo {
+  transition: box-shadow .25s ease;
+}
+
+.brand:hover .logo {
+  box-shadow: 0 0 22px #28c5ff55;
+}
+
+@media (hover: none) {
+  .btn:hover,
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+  
   <style>
     :root{--bg:#070b13;--panel:#0d1524;--panel2:#101d30;--cyan:#28c5ff;--blue:#087df5;--text:#f4f8ff;--muted:#a5b5ca;--line:rgba(67,174,255,.22);--glow:0 0 32px rgba(20,157,255,.14)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}
