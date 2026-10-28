@@ -57,7 +57,24 @@
     scroll-behavior: auto !important;
   }
 }
-  
+  #nano-particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+/* محتوای سایت بالاتر از ذرات باقی بماند */
+body > *:not(#nano-particles) {
+  position: relative;
+}
+
+#nano-particles {
+  position: fixed;
+}
   <style>
     :root{--bg:#070b13;--panel:#0d1524;--panel2:#101d30;--cyan:#28c5ff;--blue:#087df5;--text:#f4f8ff;--muted:#a5b5ca;--line:rgba(67,174,255,.22);--glow:0 0 32px rgba(20,157,255,.14)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}
