@@ -1,1 +1,417 @@
 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="شاپ Rank و Key سرور Minecraft NanoSMP">
+  <title>شاپ NanoSMP | Rank & Key</title>
+
+  <style>
+    :root {
+      --bg: #080d18;
+      --panel: #101b2d;
+      --blue: #38bdf8;
+      --cyan: #67e8f9;
+      --text: #f0f9ff;
+      --muted: #9bb0c9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(ellipse at top, #102b4a, transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(8,13,24,.9);
+      border-bottom: 1px solid rgba(56,189,248,.2);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+
+    .logo {
+      color: var(--cyan);
+      font-size: 24px;
+      font-weight: 900;
+      text-shadow: 0 0 16px rgba(56,189,248,.6);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .hero {
+      text-align: center;
+      padding: 65px 0 35px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 48px);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span { color: var(--cyan); }
+
+    .hero p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(103,232,249,.5);
+      border-radius: 12px;
+      padding: 10px 16px;
+      background: linear-gradient(135deg,#0284c7,#2563eb);
+      color: white;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 22px rgba(56,189,248,.35);
+    }
+
+    .btn.secondary {
+      background: rgba(56,189,248,.08);
+    }
+
+    .section { padding: 35px 0; }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .heading h2 { font-size: 30px; }
+    .heading h2 span { color: var(--cyan); }
+    .heading p { color: var(--muted); font-size: 14px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      gap: 17px;
+    }
+
+    .grid.keys {
+      grid-template-columns: repeat(3,minmax(0,1fr));
+    }
+
+    .card {
+      background: linear-gradient(155deg,rgba(19,38,62,.96),rgba(10,17,30,.98));
+      border: 1px solid rgba(56,189,248,.2);
+      border-radius: 18px;
+      padding: 23px 17px;
+      text-align: center;
+      transition: transform .22s, box-shadow .22s, border-color .22s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue);
+      box-shadow: 0 0 24px rgba(56,189,248,.18);
+    }
+
+    .icon {
+      font-size: 38px;
+      margin-bottom: 7px;
+    }
+
+    .card h3 { font-size: 20px; }
+
+    .card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 5px 0;
+    }
+
+    .price {
+      color: var(--cyan);
+      font-size: 21px;
+      font-weight: 900;
+      margin: 14px 0;
+    }
+
+    .price small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .card .btn { width: 100%; }
+
+    .notice {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 22px;
+    }
+
+    .server {
+      text-align: center;
+      padding: 25px;
+      background: rgba(16,27,45,.85);
+      border: 1px solid rgba(56,189,248,.2);
+      border-radius: 18px;
+    }
+
+    .server p { color: var(--muted); }
+
+    .ip {
+      direction: ltr;
+      display: block;
+      color: var(--cyan);
+      font-size: 23px;
+      font-weight: bold;
+      margin: 10px 0 16px;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 24px 12px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(56,189,248,.2);
+      font-size: 13px;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translate(-50%,20px);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 10;
+      width: max-content;
+      max-width: 90%;
+      padding: 12px 18px;
+      border: 1px solid var(--blue);
+      border-radius: 12px;
+      background: #13243a;
+      box-shadow: 0 0 20px rgba(56,189,248,.2);
+      transition: .2s;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    #toast.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%,0);
+    }
+
+    @media(max-width:850px) {
+      .grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .grid.keys { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+
+    @media(max-width:520px) {
+      .nav { justify-content: center; }
+      .nav-links { justify-content: center; }
+      .grid, .grid.keys { grid-template-columns: 1fr; }
+      .hero { padding-top: 42px; }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="./">NANO SMP</a>
+      <nav class="nav-links">
+        <a href="./">صفحه اصلی</a>
+        <a href="#ranks">رنک‌ها</a>
+        <a href="#keys">کی‌ها</a>
+        <a href="#server">آدرس سرور</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <h1>شاپ <span>NanoSMP</span></h1>
+      <p>رنک و کی مورد علاقه‌ات رو انتخاب کن!</p>
+      <a class="btn" href="#ranks">مشاهده محصولات</a>
+    </section>
+
+    <section class="section wrap" id="ranks">
+      <div class="heading">
+        <h2>شاپ <span>Rank</span></h2>
+        <p>رنک‌های سرور NanoSMP</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon">⭐</div>
+          <h3>VIP</h3>
+          <p>رنک VIP</p>
+          <div class="price">۱۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy" data-item="VIP">انتخاب رنک</button>
+        </article>
+
+        <article class="card">
+          <div class="icon">💎</div>
+          <h3>MVP</h3>
+          <p>رنک MVP</p>
+          <div class="price">۲۱۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy" data-item="MVP">انتخاب رنک</button>
+        </article>
+
+        <article class="card">
+          <div class="icon">⚡</div>
+          <h3>PLUS</h3>
+          <p>رنک PLUS</p>
+          <div class="price">۳۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy" data-item="PLUS">انتخاب رنک</button>
+        </article>
+
+        <article class="card">
+          <div class="icon">👑</div>
+          <h3>SPONSOR</h3>
+          <p>رنک SPONSOR</p>
+          <div class="price">۱,۰۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy" data-item="SPONSOR">انتخاب رنک</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="keys">
+      <div class="heading">
+        <h2>شاپ <span>Key</span></h2>
+        <p>کی‌های سرور NanoSMP</p>
+      </div>
+
+      <div class="grid keys">
+        <article class="card">
+          <div class="icon">🗝️</div>
+          <h3>Common Key</h3>
+          <p>کی معمولی</p>
+          <div class="price">۵۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy" data-item="Common Key">انتخاب کی</button>
+        </article>
+
+        <article class="card">
+          <div class="icon">🔑</div>
+          <h3>Rare Key</h3>
+          <p>کی کمیاب</p>
+          <div class="price">۱۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy" data-item="Rare Key">انتخاب کی</button>
+        </article>
+
+        <article class="card">
+          <div class="icon">💠</div>
+          <h3>Legendary Key</h3>
+          <p>کی افسانه‌ای</p>
+          <div class="price">۲۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy" data-item="Legendary Key">انتخاب کی</button>
+        </article>
+      </div>
+
+      <p class="notice">خریدها فعلاً نمایشی هستند؛ پرداخت واقعی انجام نمی‌شود.</p>
+    </section>
+
+    <section class="section wrap" id="server">
+      <div class="server">
+        <h2>🌐 ورود به سرور</h2>
+        <p>آدرس سرور Minecraft Java</p>
+        <span class="ip" id="server-ip">nanosmp.spwn.ir</span>
+        <button class="btn" id="copy-ip">📋 کپی آدرس سرور</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© NanoSMP — تمامی حقوق محفوظ است.</p>
+    <p>خریدهای این صفحه نمایشی هستند.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const toast = document.getElementById("toast");
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+    }
+
+    document.querySelectorAll(".buy").forEach(button => {
+      button.addEventListener("click", () => {
+        showToast("«" + button.dataset.item + "» انتخاب شد؛ خرید فعلاً نمایشی است.");
+      });
+    });
+
+    document.getElementById("copy-ip").addEventListener("click", async () => {
+      const ip = "nanosmp.spwn.ir";
+
+      try {
+        if (!navigator.clipboard || !window.isSecureContext) {
+          throw new Error("Clipboard unavailable");
+        }
+
+        await navigator.clipboard.writeText(ip);
+        showToast("آدرس سرور کپی شد!");
+      } catch {
+        showToast("آدرس سرور: " + ip + " — در صورت نیاز دستی کپی کن.");
+      }
+    });
+  </script>
+</body>
+                      </html>
+
