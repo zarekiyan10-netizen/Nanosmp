@@ -12,6 +12,59 @@
   
 
   <style>
+/* NanoSMP Leaderboard */
+.leaderboard-box {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 22px;
+  overflow-x: auto;
+  background: linear-gradient(160deg, #122339, #0a111e);
+  border: 1px solid rgba(56, 189, 248, .3);
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(56, 189, 248, .08);
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  min-width: 450px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(56, 189, 248, .15);
+}
+
+.leaderboard-table th {
+  color: #67e8f9;
+  background: rgba(56, 189, 248, .08);
+}
+
+.leaderboard-table td {
+  color: #f0f9ff;
+}
+
+.leaderboard-empty {
+  color: #9bb0c9 !important;
+  padding: 28px 12px !important;
+  line-height: 2;
+}
+
+.leaderboard-note {
+  color: #9bb0c9;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+@media (max-width: 520px) {
+  .leaderboard-box {
+    padding: 12px;
+  }
+}
+
     :root {
       --bg: #080d18;
       --panel: #101a2b;
