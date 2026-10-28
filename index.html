@@ -12,6 +12,73 @@
   
 /* NanoSMP Neon Upgrade */
   
+/* NanoSMP Cinematic Neon Theme */
+html {
+  min-height: 100%;
+  background: #030711;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  background-color: #030711 !important;
+  color: #edf7ff;
+}
+
+/* Animated cinematic background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -30%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 25%, #006dff35 0%, transparent 38%),
+    radial-gradient(ellipse at 80% 65%, #00d9ff20 0%, transparent 35%),
+    radial-gradient(ellipse at 50% 100%, #123dba30 0%, transparent 45%),
+    linear-gradient(135deg, #030711, #07152b 50%, #030711);
+  background-size: 150% 150%;
+  animation: nanoCinematicGlow 18s ease-in-out infinite alternate;
+}
+
+/* Subtle sci-fi grid */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(#38bdf822 1px, transparent 1px),
+    linear-gradient(90deg, #38bdf822 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+@keyframes nanoCinematicGlow {
+  0% {
+    background-position: 0% 30%;
+    transform: scale(1);
+  }
+  100% {
+    background-position: 100% 70%;
+    transform: scale(1.06);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body::before {
+    animation: none;
+  }
+}
+  
   <style>
     :root {
       --bg: #080d18;
