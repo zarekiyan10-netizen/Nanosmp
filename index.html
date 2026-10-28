@@ -657,5 +657,68 @@
       });
     })();
   </script>
+  
+<!-- NanoSMP Live Server Status -->
+<section id="nanosmp-status" style="max-width:900px;margin:35px auto;padding:24px;background:#080f1f;border:1px solid #168cff;border-radius:18px;color:white;text-align:center;font-family:Arial,sans-serif;box-shadow:0 0 20px #087bff33">
+  <h2 style="color:#55c7ff;margin-top:0">⚡ وضعیت زنده NanoSMP</h2>
+  <p id="nanosmp-state" role="status" aria-live="polite">در حال بررسی سرور...</p>
+  <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap">
+    <p>👥 بازیکنان: <strong id="nanosmp-players">--</strong></p>
+    <p>🎮 نسخه: <strong id="nanosmp-version">--</strong></p>
+  </div>
+  <button type="button" id="nanosmp-copy" style="padding:11px 18px;border:0;border-radius:9px;background:#168cff;color:white;cursor:pointer">
+    کپی آدرس سرور
+  </button>
+  <p id="nanosmp-copy-msg" aria-live="polite" style="font-size:13px"></p>
+</section>
+
+<script>
+(() => {
+  const state = document.getElementById("nanosmp-state");
+  const players = document.getElementById("nanosmp-players");
+  const version = document.getElementById("nanosmp-version");
+  const copyButton = document.getElementById("nanosmp-copy");
+  const copyMessage = document.getElementById("nanosmp-copy-msg");
+  const api = "https://api.mcsrvstat.us/3/nanosmp.spwn.ir";
+
+  async function updateStatus() {
+    try {
+      const response = await fetch(api, { cache: "no-store" });
+      if (!response.ok) throw new Error("Status unavailable");
+
+      const data = await response.json();
+
+      if (data.online === true) {
+        state.textContent = "🟢 سرور آنلاین است";
+        players.textContent =
+          (data.players?.online ?? 0) + " / " + (data.players?.max ?? "?");
+        version.textContent = data.version ?? "نامشخص";
+      } else {
+        state.textContent = "🔴 سرور آفلاین گزارش شده است";
+        players.textContent = "--";
+        version.textContent = "--";
+      }
+    } catch {
+      state.textContent = "⚠️ دریافت وضعیت ممکن نیست؛ بعداً دوباره تلاش کن";
+      players.textContent = "--";
+      version.textContent = "--";
+    }
+  }
+
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText("nanosmp.spwn.ir:6540");
+      copyMessage.textContent = "آدرس سرور کپی شد!";
+    } catch {
+      copyMessage.textContent = "کپی خودکار ممکن نیست؛ آدرس nanosmp.spwn.ir:6540 را دستی کپی کن.";
+    }
+  });
+
+  updateStatus();
+  setInterval(updateStatus, 60000);
+})();
+</script>
+<!-- End NanoSMP Live Server Status -->
+  
 </body>
 </html>
