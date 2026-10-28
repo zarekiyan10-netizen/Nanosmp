@@ -1,262 +1,659 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080d18">
-  <title>شاپ NanoSMP | Rank & Key</title>
-  <meta name="description" content="شاپ نمایشی سرور Minecraft NanoSMP">
-  <!-- مهم: اگر متا تگ تأیید Google Search Console در نسخه فعلی‌ات وجود دارد، آن را هم در این فایل نگه دار. -->
-  
-/* NanoSMP - افکت‌های گرافیکی ملایم */
-.btn {
-  transition: transform .22s ease,
-              box-shadow .22s ease,
-              filter .22s ease;
-}
+  <meta name="description" content="شاپ رسمی NanoSMP؛ مشاهده رنک‌ها و کی‌های سرور ماینکرافت">
+  <title>NanoSMP | شاپ Rank & Key</title>
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 16px #28c5ff35,
-              0 6px 18px #087df522;
-}
+  <!-- اگر تگ تأیید گوگل داری، آن را همین‌جا نگه دار -->
 
-.card {
-  transition: transform .24s ease,
-              border-color .24s ease,
-              box-shadow .24s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  border-color: #28c5ff70;
-  box-shadow: 0 0 20px #087df51a;
-}
-
-.logo {
-  transition: box-shadow .25s ease;
-}
-
-.brand:hover .logo {
-  box-shadow: 0 0 22px #28c5ff55;
-}
-
-@media (hover: none) {
-  .btn:hover,
-  .card:hover {
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-}
-  #nano-particles {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.45;
-}
-
-/* محتوای سایت بالاتر از ذرات باقی بماند */
-body > *:not(#nano-particles) {
-  position: relative;
-}
-
-#nano-particles {
-  position: fixed;
-}
   <style>
-    :root{--bg:#070b13;--panel:#0d1524;--panel2:#101d30;--cyan:#28c5ff;--blue:#087df5;--text:#f4f8ff;--muted:#a5b5ca;--line:rgba(67,174,255,.22);--glow:0 0 32px rgba(20,157,255,.14)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}
-    <canvas id="nano-particles" aria-hidden="true"></canvas>
-    body{margin:0;background:radial-gradient(ellipse at 50% -10%,#102b4d 0,transparent 48%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,92%);margin:auto}
-    header{position:sticky;top:0;z-index:10;background:rgba(7,11,19,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:74px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.2rem}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#073d79,#18c7ff);box-shadow:0 0 22px #087df544;font-size:1.3rem}
-    .links{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:.9rem}.links a:hover{color:var(--cyan)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--blue);border-radius:12px;padding:10px 16px;font-weight:800;cursor:pointer;transition:.2s;background:linear-gradient(135deg,#087df5,#19baff);color:white;box-shadow:0 8px 24px #087df52b;font-family:inherit}
-    .btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.btn.alt{background:transparent;box-shadow:none;border-color:var(--line)}
-    .hero{padding:66px 0 45px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:38px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--cyan);font-size:.82rem;background:#0b1a2b}
-    h1{font-size:clamp(2.25rem,5vw,4rem);line-height:1.25;margin:18px 0}.neon{color:var(--cyan);text-shadow:0 0 24px #28c5ff55}
-    .lead{color:var(--muted);max-width:580px;margin:0 0 24px}.actions{display:flex;flex-wrap:wrap;gap:12px}
-    .scene{min-height:270px;position:relative;display:grid;place-items:center;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#10294a,#08101d 68%);box-shadow:var(--glow)}
-    .scene:before,.scene:after{content:"";position:absolute;border:1px solid #1daeff44;transform:rotate(35deg);width:240px;height:240px;border-radius:38px}.scene:after{width:165px;height:165px;border-color:#28c5ff77}
-    .cube{font-size:6rem;filter:drop-shadow(0 0 24px #1baeff88);z-index:1;animation:float 4s ease-in-out infinite}.scene-label{position:absolute;bottom:15px;text-align:center;color:#a9dfff;font-size:.8rem;letter-spacing:2px}
-    @keyframes float{50%{transform:translateY(-9px)}}
-    section{padding:36px 0 52px}.section-head{text-align:center;margin:0 auto 28px;max-width:680px}.section-head h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:0 0 7px}.section-head p{color:var(--muted);margin:0}
-    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.card{position:relative;display:flex;flex-direction:column;background:linear-gradient(145deg,#101c2d,#0a111d);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--glow);min-width:0;transition:transform .2s,border-color .2s}
-    .card:hover{transform:translateY(-4px);border-color:#28c5ff88}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#0a2a46;color:var(--cyan);font-size:1.45rem;margin-bottom:12px}
-    .card h3{margin:0 0 5px;font-size:1.12rem}.card p{margin:0;color:var(--muted);font-size:.88rem}.price{font-size:1.22rem;color:var(--cyan);font-weight:900;margin:15px 0 4px}.price small{font-size:.75rem;color:var(--muted);font-weight:400}
-    .card .btn{margin-top:15px;width:100%;font-size:.9rem}.featured{border-color:#159fff;box-shadow:0 0 28px #087df526}.tag{position:absolute;top:12px;left:12px;font-size:.7rem;color:#07101b;background:var(--cyan);border-radius:999px;padding:2px 8px;font-weight:900}
-    .notice{margin:20px auto 0;padding:13px 16px;border:1px dashed #1979b9;border-radius:12px;color:var(--muted);font-size:.86rem;max-width:850px}
-    .server-box{max-width:700px;margin:auto;text-align:center;background:linear-gradient(135deg,#0d2037,#0a111d);border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:var(--glow)}
-    .ip{direction:ltr;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0;padding:13px 15px;background:#050a12;border:1px solid #17456a;border-radius:12px;font-family:monospace;font-size:1.05rem}.ip button{background:#102b45;border:1px solid #1c8ac8;color:var(--cyan);border-radius:8px;padding:7px 10px;cursor:pointer}
-    footer{border-top:1px solid var(--line);padding:23px 0;color:var(--muted);font-size:.85rem}.footer-row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102b45;border:1px solid #28c5ff;color:white;border-radius:10px;padding:9px 15px;opacity:0;pointer-events:none;transition:.2s;z-index:30;max-width:90%;text-align:center}#toast.show{opacity:1}
-    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{gap:22px}}
-    @media(max-width:700px){.links{gap:11px;font-size:.8rem}.nav-cta{display:none}.hero{grid-template-columns:1fr;padding-top:42px}.scene{min-height:220px}.grid{gap:10px}.card{padding:15px}.card h3{font-size:1rem}.price{font-size:1.08rem}}
-    @media(max-width:430px){.brand{font-size:1rem}.links a:nth-child(2){display:none}.grid{grid-template-columns:1fr 1fr}.card{padding:12px}.card .btn{padding:9px 5px;font-size:.8rem}.price{font-size:1rem}.icon{width:42px;height:42px}}
-  </style>
-</head>
-<body>
-<header>
-  <nav class="wrap" aria-label="منوی اصلی">
-    <a class="brand" href="#home"><span class="logo">✦</span><span>Nano<span class="neon">SMP</span></span></a>
-    <div class="links"><a href="#home">خانه</a><a href="#ranks">شاپ Rank</a><a href="#keys">شاپ Key</a><a href="#join">اتصال</a></div>
-    <a class="btn nav-cta" href="#ranks">مشاهده رنک‌ها</a>
-  </nav>
-</header>
-
-<main id="home">
-  <div class="wrap hero">
-    <div>
-      <span class="eyebrow">✦ فروشگاه رسمی NanoSMP</span>
-      <h1>شاپ سرور<br><span class="neon">NanoSMP</span></h1>
-      <p class="lead">رنک و کی موردنظرت رو انتخاب کن. در حال حاضر دکمه‌های خرید فقط نمایشی هستند و هیچ پرداخت واقعی انجام نمی‌شود.</p>
-      <div class="actions"><a class="btn" href="#ranks">دیدن Rankها ↓</a><a class="btn alt" href="#keys">دیدن Keyها</a></div>
-    </div>
-    <div class="scene" aria-label="طرح گرافیکی مکعبی"><div class="cube">▦</div><div class="scene-label">NANOSMP · STORE</div></div>
-  </div>
-
-  <section id="ranks">
-    <div class="wrap">
-      <div class="section-head"><h2>شاپ <span class="neon">Rank</span></h2><p>قیمت رنک‌ها به تومان — امکانات هر رنک هنوز مشخص نشده است.</p></div>
-      <div class="grid">
-        <article class="card"><div class="icon">◆</div><h3>VIP</h3><p>رنک VIP</p><div class="price">۱۰۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="VIP" type="button">خرید نمایشی</button></article>
-        <article class="card"><div class="icon">✦</div><h3>MVP</h3><p>رنک MVP</p><div class="price">۲۱۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="MVP" type="button">خرید نمایشی</button></article>
-        <article class="card featured"><span class="tag">PLUS</span><div class="icon">⚡</div><h3>PLUS</h3><p>رنک PLUS</p><div class="price">۳۰۰٬۰۰۰ <small>تومان</small></div><button class="btn demo-buy" data-item="PLUS" type="button">خرید نمایشی</button></article>
-        <article class="card"><div class="icon">♛</div><h3>SPONSOR</h3><p>رنک SPONSOR</p><div class="price">۱٬۰۰۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="SPONSOR" type="button">خرید نمایشی</button></article>
-      </div>
-      <div class="notice">ویژگی‌های رنک‌ها هنوز وارد نشده‌اند؛ برای جلوگیری از نمایش اطلاعات نادرست، فعلاً فقط نام و قیمت ثبت شده است.</div>
-    </div>
-  </section>
-
-  <section id="keys">
-    <div class="wrap">
-      <div class="section-head"><h2>شاپ <span class="neon">Key</span></h2><p>قیمت‌های نمایشی کلیدها</p></div>
-      <div class="grid">
-        <article class="card"><div class="icon">🔑</div><h3>Common Key</h3><p>کلید معمولی</p><div class="price">۵۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="Common Key" type="button">خرید نمایشی</button></article>
-        <article class="card"><div class="icon">💠</div><h3>Rare Key</h3><p>کلید کمیاب</p><div class="price">۱۰۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="Rare Key" type="button">خرید نمایشی</button></article>
-        <article class="card"><div class="icon">👑</div><h3>Legendary Key</h3><p>کلید افسانه‌ای</p><div class="price">۲۰۰٬۰۰۰ <small>تومان</small></div><button class="btn alt demo-buy" data-item="Legendary Key" type="button">خرید نمایشی</button></article>
-        <article class="card"><div class="icon">＋</div><h3>محصول بعدی</h3><p>می‌توان بعداً محصول‌های بیشتری اضافه کرد.</p><div class="price">—</div><button class="btn alt" type="button" onclick="showToast('برای افزودن محصول، اطلاعات آن را مشخص کن.')">اطلاعات بیشتر</button></article>
-      </div>
-      <div class="notice">این شاپ فقط ظاهر نمایشی دارد؛ پرداخت، ثبت سفارش یا تحویل خودکار آیتم در بازی پیاده‌سازی نشده است.</div>
-    </div>
-  </section>
-
-  <section id="join">
-    <div class="wrap">
-      <div class="section-head"><h2>اتصال به <span class="neon">سرور</span></h2><p>آدرس سرور را کپی کن و در Minecraft Java وارد کن.</p></div>
-      <div class="server-box"><div class="eyebrow">MINECRAFT JAVA SERVER</div><div class="ip"><span id="server-ip">nanosmp.spwn.ir</span><button id="copy-ip" type="button">کپی IP</button></div><p style="color:var(--muted);margin:0">آدرس دیسکورد یا اطلاعات تأییدنشده اضافه نشده است.</p></div>
-    </div>
-  </section>
-</main>
-<footer><div class="wrap footer-row"><span>© NanoSMP — همه حقوق محفوظ است.</span><span>شاپ نمایشی؛ بدون پرداخت واقعی</span></div></footer>
-<div id="toast" role="status" aria-live="polite"></div>
-<script>
-  const toast=document.getElementById('toast');
-  function showToast(message){toast.textContent=message;toast.classList.add('show');window.setTimeout(()=>toast.classList.remove('show'),2400);}
-  document.querySelectorAll('.demo-buy').forEach(button=>button.addEventListener('click',()=>showToast('خرید '+button.dataset.item+' فعلاً نمایشی است؛ پرداختی انجام نشد.')));
-  document.getElementById('copy-ip').addEventListener('click',async()=>{const ip=document.getElementById('server-ip').textContent.trim();try{await navigator.clipboard.writeText(ip);showToast('آدرس سرور کپی شد!')}catch(e){showToast('آدرس سرور: '+ip)}});
-</script>
-
-<script>
-(() => {
-  const canvas = document.getElementById('nano-particles');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return;
-
-  const reduceMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
-
-  const particles = [];
-  let width = 0;
-  let height = 0;
-  let frame = 0;
-
-  function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    width = window.innerWidth;
-    height = window.innerHeight;
-
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    const count = Math.min(35, Math.floor(width / 22));
-    particles.length = 0;
-
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: 1 + Math.random() * 2,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: -0.15 - Math.random() * 0.3
-      });
+    :root {
+      --bg: #080d18;
+      --panel: #101a2b;
+      --blue: #38bdf8;
+      --cyan: #67e8f9;
+      --white: #f0f9ff;
+      --muted: #9bb0c9;
+      --border: rgba(56, 189, 248, .2);
     }
 
-    draw();
-  }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-    for (const p of particles) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(40, 197, 255, 0.55)';
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = '#28c5ff';
-      ctx.fill();
+    body {
+      background:
+        radial-gradient(ellipse at 50% 0%, #102b4a 0%, transparent 55%),
+        var(--bg);
+      color: var(--white);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-      if (!reduceMotion) {
-        p.x += p.vx;
-        p.y += p.vy;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        if (p.y < -5) p.y = height + 5;
-        if (p.x < -5) p.x = width + 5;
-        if (p.x > width + 5) p.x = -5;
+    button {
+      font: inherit;
+    }
+
+    #nano-particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header, main, footer, #toast {
+      position: relative;
+      z-index: 1;
+    }
+
+    .wrap {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 24, .88);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: var(--cyan);
+      text-shadow: 0 0 12px #38bdf8, 0 0 30px #0284c7;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(103, 232, 249, .5);
+      border-radius: 12px;
+      padding: 11px 18px;
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+      box-shadow: 0 0 14px rgba(56, 189, 248, .15);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 24px rgba(56, 189, 248, .4);
+      border-color: var(--cyan);
+    }
+
+    .btn.secondary {
+      background: rgba(56, 189, 248, .08);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 85px 0 65px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--cyan);
+      border: 1px solid var(--border);
+      background: rgba(56, 189, 248, .08);
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 58px);
+      line-height: 1.4;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+      text-shadow: 0 0 25px rgba(56, 189, 248, .5);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 25px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(25px, 4vw, 34px);
+      margin-bottom: 7px;
+    }
+
+    .section-heading h2 span {
+      color: var(--cyan);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid.keys {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, rgba(18, 35, 57, .96), rgba(10, 17, 30, .97));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 23px 18px;
+      text-align: center;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: var(--cyan);
+      box-shadow: 0 0 15px var(--blue);
+      opacity: .7;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--blue);
+      box-shadow: 0 0 25px rgba(56, 189, 248, .17);
+    }
+
+    .card-icon {
+      font-size: 38px;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, .45));
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 7px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 26px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: var(--cyan);
+      font-size: 22px;
+      font-weight: 900;
+      margin: 13px 0 18px;
+    }
+
+    .price small {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: normal;
+    }
+
+    .card .btn {
+      width: 100%;
+    }
+
+    .note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 22px;
+    }
+
+    .server-box {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(16, 26, 43, .86);
+      text-align: center;
+      box-shadow: 0 0 30px rgba(56, 189, 248, .06);
+    }
+
+    .server-box h2 {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .server-box p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .ip {
+      direction: ltr;
+      display: inline-block;
+      color: var(--cyan);
+      font-size: clamp(17px, 4vw, 25px);
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px rgba(56, 189, 248, .3);
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      padding: 25px 12px;
+      font-size: 13px;
+      margin-top: 35px;
+    }
+
+    #toast {
+      position: fixed;
+      z-index: 30;
+      bottom: 22px;
+      left: 50%;
+      transform: translate(-50%, 20px);
+      background: #13243a;
+      border: 1px solid var(--blue);
+      color: white;
+      border-radius: 12px;
+      padding: 12px 20px;
+      box-shadow: 0 0 25px rgba(56, 189, 248, .22);
+      opacity: 0;
+      visibility: hidden;
+      transition: .25s;
+      width: max-content;
+      max-width: 90%;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    #toast.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 850px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid.keys {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    ctx.shadowBlur = 0;
+    @media (max-width: 520px) {
+      .nav {
+        justify-content: center;
+      }
 
-    if (!reduceMotion) {
-      frame = requestAnimationFrame(draw);
+      .nav-links {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 58px 0 40px;
+      }
+
+      .grid, .grid.keys {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .server-box {
+        padding: 22px 14px;
+      }
     }
-  }
 
-  window.addEventListener('resize', resize);
-  resize();
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      cancelAnimationFrame(frame);
-    } else if (!reduceMotion) {
-      cancelAnimationFrame(frame);
+<body>
+  <canvas id="nano-particles" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#home">NANO<span>SMP</span></a>
+
+      <nav class="nav-links" aria-label="منوی اصلی">
+        <a href="#home">خانه</a>
+        <a href="#ranks">شاپ رنک</a>
+        <a href="#keys">شاپ کی</a>
+        <a href="#server">سرور</a>
+      </nav>
+
+      <a class="btn" href="#ranks">مشاهده شاپ</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home">
+      <span class="tag">✦ دنیای NanoSMP ✦</span>
+      <h1>به شاپ <span>NanoSMP</span> خوش آمدی!</h1>
+      <p>
+        رنک و کی مورد علاقه‌ات را انتخاب کن و تجربه‌ات را در دنیای ماینکرافت متفاوت‌تر کن.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#ranks">⚡ مشاهده رنک‌ها</a>
+        <a class="btn secondary" href="#keys">🔑 مشاهده کی‌ها</a>
+      </div>
+    </section>
+
+    <section class="section wrap" id="ranks">
+      <div class="section-heading">
+        <h2>شاپ <span>Rank</span></h2>
+        <p>رنک مورد علاقه‌ات را انتخاب کن.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">⭐</div>
+          <h3>VIP</h3>
+          <p>رنک VIP سرور</p>
+          <div class="price">۱۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy-demo" data-item="VIP">انتخاب رنک</button>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">💎</div>
+          <h3>MVP</h3>
+          <p>رنک MVP سرور</p>
+          <div class="price">۲۱۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy-demo" data-item="MVP">انتخاب رنک</button>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">⚡</div>
+          <h3>PLUS</h3>
+          <p>رنک PLUS سرور</p>
+          <div class="price">۳۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy-demo" data-item="PLUS">انتخاب رنک</button>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">👑</div>
+          <h3>SPONSOR</h3>
+          <p>رنک SPONSOR سرور</p>
+          <div class="price">۱,۰۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy-demo" data-item="SPONSOR">انتخاب رنک</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="keys">
+      <div class="section-heading">
+        <h2>شاپ <span>Key</span></h2>
+        <p>کی مورد نظرت را انتخاب کن.</p>
+      </div>
+
+      <div class="grid keys">
+        <article class="card">
+          <div class="card-icon">🗝️</div>
+          <h3>Common Key</h3>
+          <p>کی معمولی</p>
+          <div class="price">۵۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy-demo" data-item="Common Key">انتخاب کی</button>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔑</div>
+          <h3>Rare Key</h3>
+          <p>کی کمیاب</p>
+          <div class="price">۱۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy-demo" data-item="Rare Key">انتخاب کی</button>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">💠</div>
+          <h3>Legendary Key</h3>
+          <p>کی افسانه‌ای</p>
+          <div class="price">۲۰۰,۰۰۰ <small>تومان</small></div>
+          <button class="btn buy-demo" data-item="Legendary Key">انتخاب کی</button>
+        </article>
+      </div>
+
+      <p class="note">خریدها در حال حاضر نمایشی هستند و پرداخت واقعی انجام نمی‌شود.</p>
+    </section>
+
+    <section class="section wrap" id="server">
+      <div class="server-box">
+        <h2>🌐 ورود به NanoSMP</h2>
+        <p>آدرس سرور Minecraft Java</p>
+        <div class="ip">nanosmp.spwn.ir</div>
+        <br>
+        <button class="btn" id="copy-ip">📋 کپی آدرس سرور</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© NanoSMP — تمامی حقوق محفوظ است.</p>
+    <p>شاپ نمایشی؛ پرداخت آنلاین هنوز فعال نیست.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // پیام‌های نمایشی سایت
+    const toast = document.getElementById("toast");
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2800);
+    }
+
+    document.querySelectorAll(".buy-demo").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = button.dataset.item;
+        showToast("«" + item + "» انتخاب شد؛ خرید فعلاً نمایشی است.");
+      });
+    });
+
+    // کپی آدرس سرور
+    document.getElementById("copy-ip").addEventListener("click", async () => {
+      const ip = "nanosmp.spwn.ir";
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(ip);
+        } else {
+          const field = document.createElement("textarea");
+          field.value = ip;
+          field.style.position = "fixed";
+          field.style.opacity = "0";
+          document.body.appendChild(field);
+          field.select();
+
+          const copied = document.execCommand("copy");
+          field.remove();
+
+          if (!copied) throw new Error("Copy failed");
+        }
+
+        showToast("آدرس سرور کپی شد: " + ip);
+      } catch {
+        showToast("آدرس سرور: " + ip);
+      }
+    });
+
+    // ذرات آبی شناور پس‌زمینه
+    (() => {
+      const canvas = document.getElementById("nano-particles");
+      const ctx = canvas.getContext("2d");
+
+      if (!ctx || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      let frame;
+
+      function resize() {
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        canvas.width = width * ratio;
+        canvas.height = height * ratio;
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+        const count = Math.min(65, Math.floor(width / 18));
+
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 2 + 0.5,
+          speed: Math.random() * 0.45 + 0.12,
+          drift: (Math.random() - 0.5) * 0.35,
+          alpha: Math.random() * 0.5 + 0.2
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (const p of particles) {
+          p.y -= p.speed;
+          p.x += p.drift;
+
+          if (p.y < -5) {
+            p.y = height + 5;
+            p.x = Math.random() * width;
+          }
+
+          if (p.x < -5) p.x = width + 5;
+          if (p.x > width + 5) p.x = -5;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(56,189,248," + p.alpha + ")";
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = "#38bdf8";
+          ctx.fill();
+        }
+
+        ctx.shadowBlur = 0;
+        frame = requestAnimationFrame(draw);
+      }
+
+      resize();
       draw();
-    }
-  });
-})();
-</script>
-  
+
+      window.addEventListener("resize", resize);
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          cancelAnimationFrame(frame);
+        } else {
+          cancelAnimationFrame(frame);
+          draw();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
