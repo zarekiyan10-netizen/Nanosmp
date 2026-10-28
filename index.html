@@ -171,5 +171,92 @@ body > *:not(#nano-particles) {
   document.querySelectorAll('.demo-buy').forEach(button=>button.addEventListener('click',()=>showToast('خرید '+button.dataset.item+' فعلاً نمایشی است؛ پرداختی انجام نشد.')));
   document.getElementById('copy-ip').addEventListener('click',async()=>{const ip=document.getElementById('server-ip').textContent.trim();try{await navigator.clipboard.writeText(ip);showToast('آدرس سرور کپی شد!')}catch(e){showToast('آدرس سرور: '+ip)}});
 </script>
+
+<script>
+(() => {
+  const canvas = document.getElementById('nano-particles');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  const particles = [];
+  let width = 0;
+  let height = 0;
+  let frame = 0;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.min(35, Math.floor(width / 22));
+    particles.length = 0;
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: 1 + Math.random() * 2,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: -0.15 - Math.random() * 0.3
+      });
+    }
+
+    draw();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (const p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(40, 197, 255, 0.55)';
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = '#28c5ff';
+      ctx.fill();
+
+      if (!reduceMotion) {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.y < -5) p.y = height + 5;
+        if (p.x < -5) p.x = width + 5;
+        if (p.x > width + 5) p.x = -5;
+      }
+    }
+
+    ctx.shadowBlur = 0;
+
+    if (!reduceMotion) {
+      frame = requestAnimationFrame(draw);
+    }
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(frame);
+    } else if (!reduceMotion) {
+      cancelAnimationFrame(frame);
+      draw();
+    }
+  });
+})();
+</script>
+  
 </body>
 </html>
